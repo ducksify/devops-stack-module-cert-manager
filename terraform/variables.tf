@@ -40,7 +40,7 @@ variable "profiles" {
 ## Module variables
 #######################
 
-variable "cert-manager" {
+variable "cert_manager" {
   description = "Cert-Manager settings"
   type        = any
   default     = {}

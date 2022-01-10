@@ -5,5 +5,5 @@ module "eks" {
 
   cluster_name            = var.cluster_name
   base_domain             = var.base_domain
-  cluster_oidc_issuer_url = var.cert-manager.cluster_oidc_issuer_url
+  cluster_oidc_issuer_url = var.cert_manager.cluster_oidc_issuer_url
 }
