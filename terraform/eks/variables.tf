@@ -2,10 +2,6 @@ variable "cluster_name" {
   type = string
 }
 
-variable "cluster_id" {
-  type = string
-}
-
 variable "base_domain" {
   type = string
 }
