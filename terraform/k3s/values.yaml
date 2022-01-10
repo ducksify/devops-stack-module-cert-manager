@@ -1,0 +1,3 @@
+cert-manager:
+  tlsCrt: ${root_cert}
+  tlsKey: ${root_key}

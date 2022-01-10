@@ -45,8 +45,3 @@ variable "cert_manager" {
   type        = any
   default     = {}
 }
-
-variable "aws_default_region" {
-  type    = string
-  default = ""
-}

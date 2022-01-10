@@ -33,13 +33,7 @@ resource "argocd_project" "this" {
 }
 
 data "utils_deep_merge_yaml" "values" {
-  input = [ for i in var.profiles : templatefile("${path.module}/profiles/${i}.yaml", {
-      cluster_name = var.cluster_name,
-      base_domain  = var.base_domain,
-      cert_manager = var.cert_manager,
-
-      aws_default_region = var.aws_default_region
-  }) ]
+  input = local.all_yaml
 }
 
 resource "argocd_application" "this" {
