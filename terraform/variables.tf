@@ -28,7 +28,7 @@ variable "cluster_issuer" {
 
 variable "namespace" {
   type    = string
-  default = "traefik"
+  default = "cert-manager"
 }
 
 variable "profiles" {
