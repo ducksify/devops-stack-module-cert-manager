@@ -1,7 +1,7 @@
 cert-manager:
   serviceAccount:
     annotations:
-      eks.amazonaws.com/role-arn: ${cert_manager.assumable_role_arn}
+      eks.amazonaws.com/role-arn: ${assumable_role_arn}
   clusterIssuers:
     letsencrypt:
       enabled: true

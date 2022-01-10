@@ -4,6 +4,8 @@ data "aws_route53_zone" "this" {
   name = var.base_domain
 }
 
+data "aws_region" "current" {}
+
 module "iam_assumable_role_cert_manager" {
   count = var.base_domain == null ? 0 : 1
 
@@ -64,4 +66,25 @@ data "aws_iam_policy_document" "cert_manager" {
 
     effect = "Allow"
   }
+}
+
+module "cert-manager" {
+  source = "../"
+
+  cluster_name = var.cluster_name
+  base_domain  = var.base_domain
+  oidc         = var.oidc
+  argocd       = var.argocd
+
+  cluster_issuer = var.cluster_issuer
+  namespace      = var.namespace
+  profiles       = var.profiles
+
+  cert_manager   = var.cert_manager
+
+  extra_yaml = [ templatefile("${path.module}/values.yaml", {
+    assumable_role_arn = var.base_domain == null ? "" : module.iam_assumable_role_cert_manager.0.iam_role_arn
+    aws_default_region = data.aws_region.current.name
+    base_domain        = var.base_domain
+  }) ]
 }
