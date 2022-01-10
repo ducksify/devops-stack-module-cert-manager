@@ -23,7 +23,7 @@ resource "aws_iam_policy" "cert_manager" {
   count = var.base_domain == null ? 0 : 1
 
   name_prefix = "cert-manager"
-  description = "EKS cert-manager policy for cluster ${var.cluster_id}"
+  description = "EKS cert-manager policy for cluster ${var.cluster_name}"
   policy      = data.aws_iam_policy_document.cert_manager.0.json
 }
 
