@@ -4,8 +4,6 @@ data "aws_route53_zone" "this" {
   name = var.base_domain
 }
 
-data "aws_region" "current" {}
-
 module "iam_assumable_role_cert_manager" {
   count = var.base_domain == null ? 0 : 1
 

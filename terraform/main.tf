@@ -33,7 +33,7 @@ data "utils_deep_merge_yaml" "values" {
       base_domain  = var.base_domain,
       cert_manager = var.cert_manager,
 
-      aws_default_region = data.aws_region.current.name
+      aws_default_region = var.aws_default_region
   }) ]
 }
 
