@@ -16,6 +16,11 @@ resource "argocd_project" "this" {
       namespace = var.namespace
     }
  
+    destination {
+      server    = "https://kubernetes.default.svc"
+      namespace = "kube-system"
+    }
+ 
     orphaned_resources {
       warn = true
     }
