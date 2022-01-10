@@ -1,5 +1,5 @@
 module "eks" {
-  count = var.profile == "eks" ? 1 : 0
+  count = contains(var.profiles, "eks") ? 1 : 0
 
   source = "./eks"
 
