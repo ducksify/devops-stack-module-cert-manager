@@ -12,6 +12,8 @@ module "cert-manager" {
   cluster_name     = var.cluster_name
   argocd_namespace = module.cluster.argocd_namespace
   base_domain      = module.cluster.base_domain
+
+  depends_on = [ module.monitoring ]
 }
 ```
 
