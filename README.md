@@ -15,7 +15,6 @@ module "cert-manager" {
     namespace = module.cluster.argocd_namespace
   }
   base_domain    = module.cluster.base_domain
-  cluster_issuer = "ca-issuer"
 }
 ```
 

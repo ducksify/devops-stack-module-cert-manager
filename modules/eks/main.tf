@@ -76,7 +76,6 @@ module "cert-manager" {
   oidc         = var.oidc
   argocd       = var.argocd
 
-  cluster_issuer = var.cluster_issuer
   namespace      = var.namespace
   profiles       = var.profiles
 

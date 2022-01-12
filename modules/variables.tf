@@ -21,11 +21,6 @@ variable "argocd" {
   })
 }
 
-variable "cluster_issuer" {
-  type    = string
-  default = "ca-issuer"
-}
-
 variable "namespace" {
   type    = string
   default = "cert-manager"
