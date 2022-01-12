@@ -24,15 +24,12 @@ resource "tls_self_signed_cert" "root" {
 module "cert-manager" {
   source = "../"
 
-  cluster_name = var.cluster_name
-  base_domain  = var.base_domain
-  oidc         = var.oidc
-  argocd       = var.argocd
+  cluster_name     = var.cluster_name
+  base_domain      = var.base_domain
+  argocd_namespace = var.argocd_namespace
 
   namespace      = var.namespace
   profiles       = var.profiles
-
-  cert_manager   = var.cert_manager
 
   extra_yaml = [ templatefile("${path.module}/values.yaml", {
     root_cert    = base64encode(tls_self_signed_cert.root.cert_pem)

@@ -9,12 +9,9 @@ A [DevOps Stack](https://devops-stack.io) module to deploy and configure [Cert-M
 module "cert-manager" {
   source = "git::https://github.com/camptocamp/devops-stack-module-cert-manager.git//modules/self-signed"
 
-  cluster_name   = var.cluster_name
-  oidc           = module.cluster.oidc
-  argocd         = {
-    namespace = module.cluster.argocd_namespace
-  }
-  base_domain    = module.cluster.base_domain
+  cluster_name     = var.cluster_name
+  argocd_namespace = module.cluster.argocd_namespace
+  base_domain      = module.cluster.base_domain
 }
 ```
 

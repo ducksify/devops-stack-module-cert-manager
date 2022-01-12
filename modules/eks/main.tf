@@ -71,15 +71,12 @@ data "aws_iam_policy_document" "cert_manager" {
 module "cert-manager" {
   source = "../"
 
-  cluster_name = var.cluster_name
-  base_domain  = var.base_domain
-  oidc         = var.oidc
-  argocd       = var.argocd
+  cluster_name     = var.cluster_name
+  base_domain      = var.base_domain
+  argocd_namespace = var.argocd_namespace
 
   namespace      = var.namespace
   profiles       = var.profiles
-
-  cert_manager   = var.cert_manager
 
   extra_yaml = [ templatefile("${path.module}/values.yaml", {
     assumable_role_arn = var.base_domain == null ? "" : module.iam_assumable_role_cert_manager.0.iam_role_arn
