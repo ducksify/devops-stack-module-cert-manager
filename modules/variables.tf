@@ -39,9 +39,3 @@ variable "profiles" {
 #######################
 ## Module variables
 #######################
-
-variable "cert_manager" {
-  description = "Cert-Manager settings"
-  type        = any
-  default     = {}
-}
