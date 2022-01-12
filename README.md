@@ -1,5 +1,7 @@
 # devops-stack-module-cert-manager
 
+A [DevOps Stack](https://devops-stack.io) module to deploy and configure [Cert-Manager](https://cert-manager.io).
+
 
 ## Usage
 
