@@ -9,7 +9,7 @@ resource "argocd_project" "this" {
  
   spec {
     description  = "cert-manager application project"
-    source_repos = ["https://github.com/camptocamp/devops-stack-module-cert-manager.git"]
+    source_repos = ["https://github.com/ducksify/devops-stack-module-cert-manager.git"]
  
     destination {
       server    = "https://kubernetes.default.svc"
@@ -46,7 +46,7 @@ resource "argocd_application" "this" {
     project = argocd_project.this.metadata.0.name
 
     source {
-      repo_url        = "https://github.com/camptocamp/devops-stack-module-cert-manager.git"
+      repo_url        = "https://github.com/ducksify/devops-stack-module-cert-manager.git"
       path            = "charts/cert-manager"
       target_revision = "main"
       helm {
